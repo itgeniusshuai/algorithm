@@ -1,0 +1,21 @@
+def quick_sort(arr, left, right):
+    if left >= right:
+        return
+    i = left
+    j = right
+    middle = arr[left]
+    while i != j:
+        while i < j and arr[j] >= middle:
+            j -= 1
+        arr[i] = arr[j]
+        while i < j and arr[i] < middle:
+            i += 1
+        arr[j] = arr[i]
+    arr[i] = middle
+    quick_sort(arr, left, i-1)
+    quick_sort(arr, i+1, right)
+
+if __name__ == "__main__":
+    arr1 = [4, 23, 2, 21, 1, 55, 2, 34]
+    quick_sort(arr1, 0, len(arr1)-1)
+    print arr1
